@@ -1,5 +1,11 @@
 # Rago Meditation API
 
+[![Documentation](https://img.shields.io/badge/Documentation-GitHub%20Pages-blue.svg)](https://bytefield.github.io/meditacion_app_server/)
+
+> **Note**: The complete documentation is now available on [GitHub Pages](https://bytefield.github.io/meditacion_app_server/).
+
+---
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4.18.x-lightgrey.svg)](https://expressjs.com/)
