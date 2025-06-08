@@ -152,19 +152,23 @@ const generateToken = (res, userId) => {
   const cookieOptions = {
     httpOnly: true,
     secure: isProduction,
-    sameSite: 'lax', // Cambiado de 'strict' a 'lax' para mejor compatibilidad
+    sameSite: isProduction ? 'strict' : 'none', // Use 'none' for development to allow cross-origin
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     path: '/',
   };
 
-  // Solo establecer el dominio en producción
   if (isProduction) {
+    // Production settings
     cookieOptions.domain = 'tudominio.com';
+    cookieOptions.secure = true; // Ensure secure in production
   } else {
-    // Para desarrollo local
-    cookieOptions.domain = 'localhost';
+    // Development settings - don't set domain to allow localhost and emulator IPs
+    cookieOptions.secure = false; // Allow non-HTTPS in development
   }
 
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Setting cookie with options:', JSON.stringify(cookieOptions, null, 2));
+  }
 
   res.cookie('jwt', token, cookieOptions);
 };
